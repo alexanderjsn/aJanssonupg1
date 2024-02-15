@@ -17,8 +17,8 @@ import java.util.List;
 @WebServlet("/attendance")
 public class attendanceServlet extends HttpServlet {
 
-    private final org.example.utils.studentDAO studentDAO = new studentDAO();
-    private final org.example.utils.courseDAO courseDAO = new courseDAO();
+    private final org.example.models.studentDAO studentDAO = new studentDAO();
+    private final org.example.models.courseDAO courseDAO = new courseDAO();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -29,15 +29,6 @@ public class attendanceServlet extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin.jsp");
         dispatcher.forward(request, response);
-    }
-
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int student_id = Integer.parseInt(request.getParameter("student_id"));
-        int course_id = Integer.parseInt(request.getParameter("course_id"));
-        courseDAO.addBoth(student_id, course_id);
-        response.sendRedirect("student");
-
     }
 
 }

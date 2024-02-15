@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dosis:wght@200&family=Poppins:wght@100&display=swap');
+
+
+html, body {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+body {
+	font-family: "Poppins", sans-serif;
+	font-weight: 300;
+	background-color: #FAFFFD;
+	scroll-behavior: smooth;
+}
+
+.header {
+	height: 74px;
+	width: 100%;
+	background-color: #FAFFFD;
+	padding: 15px;
+	 overflow: auto;
+}
+/* header */
+#menu, .logo {
+	line-height: 75px;
+}
+.logo {
+	float: left;
+	margin-left: 50px;
+	font-size: 24px;
+	text-decoration: none;
+	color: #161616;
+}
+#menu {
+    float: right;
+    line-height: 44px;
+    margin-top: 15px;
+    margin-right: 50px;
+    }
+
+    #menu ul {
+        list-style-type: none;
+    }
+#menu li {
+    display: inline-block;
+	float: right;
+	list-style-type: none;
+	margin-left: 20px;
+	color: #161616;
+}
+#menu a {
+	font-size: 30px;
+	text-decoration: none;
+	color: #009879;
+	    font-weight: bold;
+
+}
+#menu a:hover {
+	color: #8cffb4;
+
+}
+.active {
+	border-bottom: 1px solid #009879;
+}
+
+form {
+background-color: #009879
+padding: 20px;
+border-radius: 10px;
+width: 300px;
+}
+
+label {
+font-weight: bold;
+color: #333;
+}
+
+input[type="number"],
+input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: width 0.3s ease;
+  width: calc(50% - 4px);
+  display: inline-block;
+  margin-right: 8px;
+}
+
+
+
+
+::-webkit-scrollbar {
+    width: 1;
+}
+
+.form-container{
+display:flex;
+align-items: flex-start;
+}
+
+.form1, .form2 {
+margin-right: 20px;
+}
+
+.form2{
+margin-right: 0;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1.2em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+        overflow-x: hidden;
+
+    max-width:300px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.10);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+
+}
+
+
+
+th {
+    background-color: #009879;
+    color: #FAFFFD;
+    text-align: center;
+}
+
+
+
+.tablecontainer {
+  display: flex;
+  max-height: 500px;
+    overflow-x: hidden;
+
+}
+
+.box {
+  flex: 1;
+  margin: 0 10px;
+  overflow-y: auto;
+}

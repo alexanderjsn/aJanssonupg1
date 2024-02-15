@@ -15,14 +15,12 @@ public class studentDAO {
 
     // sql kommands
 
-    private static final String ADD_STUDENTS = "INSERT INTO students (Fname, Lname, city, hobby) VALUES (?, ?, ?, ?);";
     // hämta data
     private static final String GET_STUDENTS = "SELECT * FROM students;";
 
 
     private static final String SEARCH_STUDENTS = "SELECT * FROM students WHERE Fname LIKE ? OR Lname LIKE ?";
 
-    private static final String AUTOCORRECT_STUDENTS = "SELECT student_id FROM students WHERE Fname LIKE ? OR Lname LIKE ?";
 
     public studentDAO(int id, String fname, String lname, String city, String hobby) {
     }
@@ -31,42 +29,6 @@ public class studentDAO {
 
     }
 
-    // skicka data
-
-
-    // auto correct data
-
-    public List<student> autoStudent(String Fname,String Lname){
-        List<student> autoStudent = new ArrayList<>();
-        try (Connection connection = DBconnector.getConnection();
-             PreparedStatement pstmt = connection.prepareStatement(AUTOCORRECT_STUDENTS)) {
-            pstmt.setString(1, "%" + Fname + "%");
-            pstmt.setString(2, "%" + Lname + "%");
-            ResultSet rs = pstmt.executeQuery();
-            while (rs.next()){
-                int student_id = rs.getInt("student_id");
-                autoStudent.add(new student(student_id));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return autoStudent;
-    }
-    // ta bort data
-
-    public void addStudent(String Fname, String Lname, String city, String hobby) {
-        try (Connection connection = DBconnector.getConnection();
-             PreparedStatement pstmt = connection.prepareStatement(ADD_STUDENTS)) {
-            pstmt.setString(1, "%" + Fname + "%");
-            pstmt.setString(2, "%" + Lname + "%");
-            pstmt.setString(3, "%" + city + "%");
-            pstmt.setString(4, "%" + hobby + "%");
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
 
         public List<student> searchStudent(String searchFname, String searchLname)  {
            List<student> searchStudents = new ArrayList<>();

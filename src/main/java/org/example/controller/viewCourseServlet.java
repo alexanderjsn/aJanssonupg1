@@ -18,7 +18,7 @@ public class viewCourseServlet extends HttpServlet {
 
 
     // hämtar studentDAO så jag kan hämta listan med studenter
-    private final org.example.utils.courseDAO courseDAO = new courseDAO();
+    private final org.example.models.courseDAO courseDAO = new courseDAO();
 
     studentDAO s = new studentDAO();
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

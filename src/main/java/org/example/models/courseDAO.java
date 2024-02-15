@@ -15,29 +15,15 @@ public class courseDAO {
 
     // sql kommands
 
-    private static final String ADD_BOTH = "INSERT INTO association (student_id, course_id) VALUES (?, ?);";
 
 
     // hämta data
     private static final String GET_COURSES = "SELECT * FROM courses;";
 
     // skicka data
-    private static final String ADD_COURSES = "INSERT INTO courses (name, YHP, description) VALUES (?, ?, ?);";
 
     // ta bort data
 
-
-
-    public void addBoth(int student_id, int course_id) {
-        try (Connection connection = DBconnector.getConnection();
-             PreparedStatement pstmt = connection.prepareStatement(ADD_BOTH)) {
-            pstmt.setInt(1, student_id);
-            pstmt.setInt(2, course_id);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     //tar in java beans student klass
     public List<Course> getCourse() {
@@ -64,17 +50,4 @@ public class courseDAO {
             throw new RuntimeException(e);
         }
         return courses;
-    }
-
-    public void addCourse(String name, int yhp, String description) {
-        try (Connection connection = DBconnector.getConnection();
-             PreparedStatement pstmt = connection.prepareStatement(ADD_COURSES)) {
-            pstmt.setString(1, "%" + name + "%");
-            pstmt.setString(2, String.valueOf(yhp));
-            pstmt.setString(3, "%" + description + "%");
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-}
+    }}

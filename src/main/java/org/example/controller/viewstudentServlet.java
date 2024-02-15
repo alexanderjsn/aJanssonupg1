@@ -17,12 +17,12 @@ import java.util.List;
 public class viewstudentServlet extends HttpServlet {
 
     // hämtar studentDAO så jag kan hämta listan med studenter
-    private final org.example.utils.studentDAO studentDAO = new studentDAO();
+    private final org.example.models.studentDAO studentDAO = new studentDAO();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // skapar en lista som fylld med data från studentDAO listan
-        List<student> students = studentDAO.;
+        List<student> students = studentDAO.getStudents();
 
 
         // request har value av  listan ( skicka denna till - > )
